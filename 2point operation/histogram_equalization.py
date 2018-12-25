@@ -8,14 +8,17 @@ def equalization(img):
     cummu = np.cumsum(hist)
     row = np.size(img,0)
     col = np.size(img,1)
+    print(img.size)
+    print(row*col)
+    print(cummu[254])
     equ_img= np.zeros((row,col),np.uint8)
     for i in range(0,255):
         H_eq= round(((cummu[i])/(cummu[254]))*255)
         equ_img[img==i]=[H_eq]               
     return equ_img
 
-file = 'jpg'
-name = 'image2'
+file = 'jpeg'
+name = 'image3'
 pil_img = Image.open(name+'.'+file).convert('RGB') 
 cv_img = np.array(pil_img)
 img = cv2.cvtColor(cv_img, cv2.COLOR_RGB2BGR)

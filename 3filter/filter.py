@@ -48,11 +48,13 @@ gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 box_img = box_filter(gray_img)
 guassian_img = gaussian_filter(gray_img)
 gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+median_filter =  cv2.medianBlur(gray_img,3)
 
 
 
 
-plt.subplot(1,3,1), plt.imshow(gray_img,cmap='gray')
-plt.subplot(1,3,2), plt.imshow(box_img,cmap='gray')
-plt.subplot(1,3,3), plt.imshow(guassian_img,cmap='gray')
+plt.subplot(1,4,1), plt.imshow(gray_img,cmap='gray')
+plt.subplot(1,4,2), plt.imshow(box_img,cmap='gray')
+plt.subplot(1,4,3), plt.imshow(guassian_img,cmap='gray')
+plt.subplot(1,4,4), plt.imshow(median_filter,cmap='gray')
 plt.show()
